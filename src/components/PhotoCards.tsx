@@ -21,6 +21,21 @@ const photos: Photo[] = [
   { src: cutePhoto, caption: "a Cute photo of you" },
 ];
 
+// Create a type for the sparkle styles string
+const createSparkleStyles = () => {
+  return [...Array(15)]
+    .map(
+      (_, i) => `
+      .sparkle-${i} {
+        left: ${Math.random() * 100}%;
+        animation-delay: ${Math.random() * 12}s;
+        animation-duration: ${12 + Math.random() * 8}s;
+      }
+    `,
+    )
+    .join("");
+};
+
 const PhotoCards: React.FC<Props> = ({ onNext }) => {
   return (
     <motion.div
@@ -295,17 +310,7 @@ const PhotoCards: React.FC<Props> = ({ onNext }) => {
           }
         }
 
-        ${[...Array(15)]
-          .map(
-            (_, i) => `
-          .sparkle-${i} {
-            left: ${Math.random() * 100}%;
-            animation-delay: ${Math.random() * 12}s;
-            animation-duration: ${12 + Math.random() * 8}s;
-          }
-        `,
-          )
-          .join("")}
+        ${createSparkleStyles()}
       `}</style>
     </motion.div>
   );
