@@ -14,7 +14,7 @@ const LandingPage: React.FC<Props> = ({ onNext }) => {
       transition={{ duration: 0.5 }}
     >
       <h1>Hey Ummih, I made this for you…</h1>
-      <p>Are you ready for a journey through our memories?</p>
+      <p>Are you ready for a journey?</p>
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
