@@ -1,0 +1,345 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* First ensure the root elements take full height */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+  color: #333;
+  position: relative;
+}
+
+.content-wrapper {
+  width: min(100%, 800px);
+  padding: clamp(1rem, 5vw, 2rem);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.floating-hearts {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  width: clamp(15px, 2vw, 20px);
+  height: clamp(15px, 2vw, 20px);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff4081' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E")
+    no-repeat center center;
+  background-size: contain;
+  opacity: 0.6;
+  animation: float-up 5s infinite linear;
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) scale(0);
+  }
+  100% {
+    transform: translateY(-100vh) scale(1);
+  }
+}
+
+.landing-page,
+.photo-cards,
+.video-cards,
+.final-stage {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: clamp(10px, 3vw, 20px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: clamp(1rem, 3vw, 2rem);
+  width: 100%;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+h2 {
+  font-size: clamp(1.25rem, 4vw, 2rem);
+}
+
+h1,
+h2 {
+  font-family: "Pacifico", cursive;
+  color: #ff4081;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  word-wrap: break-word;
+}
+
+button {
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  padding: clamp(8px, 2vw, 12px) clamp(16px, 4vw, 24px);
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  cursor: pointer;
+  border-radius: 50px;
+  margin-top: clamp(1rem, 3vw, 2rem);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+}
+
+button:hover {
+  background-color: #e91e63;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+  width: 100%;
+}
+
+.card {
+  background-color: white;
+  border-radius: 15px;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-10px) rotate(2deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card img,
+.card video {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.card p {
+  margin-top: auto;
+  font-style: italic;
+  color: #666;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+.final-stage {
+  text-align: center;
+}
+
+.proposal-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  margin-top: clamp(1rem, 3vw, 2rem);
+}
+
+.yes-button {
+  background-color: #4caf50;
+}
+
+.yes-button:hover {
+  background-color: #45a049;
+}
+
+.no-button {
+  background-color: #f44336;
+}
+
+.no-button:hover {
+  background-color: #d32f2f;
+}
+
+.heartfelt-message {
+  text-align: left;
+  width: min(100%, 600px);
+  margin: 0 auto;
+  padding: clamp(1rem, 3vw, 2rem);
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: clamp(10px, 3vw, 20px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.heartfelt-message p {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+.heartfelt-message .signature {
+  font-family: "Pacifico", cursive;
+  text-align: right;
+  color: #ff4081;
+  margin-top: clamp(1rem, 3vw, 2rem);
+  font-size: clamp(1rem, 3vw, 1.25rem);
+}
+.photo-cards {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(1rem, 5vw, 2rem);
+}
+
+.photo-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+  width: 100%;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.photo-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.photo-wrapper {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.photo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-5px);
+}
+
+.photo-card:hover img {
+  transform: scale(1.05);
+}
+
+.photo-caption {
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  color: #333;
+  margin: auto 0 0;
+  text-align: center;
+}
+
+.next-button {
+  display: block;
+  margin: 0 auto;
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  border-radius: 50px;
+  background: #ff4081;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure proper spacing on very small screens */
+@media (max-width: 350px) {
+  .content-wrapper {
+    padding: 0.5rem;
+  }
+
+  .card-container {
+    gap: 0.5rem;
+  }
+
+  .proposal-buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+/* Media Queries */
+@media (max-width: 768px) {
+  .photo-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-card {
+    max-width: 100%;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .photo-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .photo-wrapper {
+    aspect-ratio: 16/9;
+  }
+}
+
+/* High-resolution screens */
+@media (min-width: 1920px) {
+  .photo-cards {
+    max-width: 1400px;
+  }
+
+  .photo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
